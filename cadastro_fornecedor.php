@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensagem = "Fornecedor atualizado com sucesso!";
     } else {
         // Se não há ID, é uma nova inserção
-        $sql = "INSERT INTO fornecedores (nome, email, telefone, imagem) VALUES ('$nome', '$email', '$telefone', '$imagem')";
+        $sql = "INSERT INTO fornecedor (nome, email, telefone, imagem) VALUES ('$nome', '$email', '$telefone', '$imagem')";
         $mensagem = "Fornecedor cadastrado com sucesso!";
     }
 
@@ -120,7 +120,7 @@ if (isset($_GET['delete_id'])) {
     if ($check_produtos['count'] > 0) {
         $mensagem = "Não é possível excluir este fornecedor pois existem produtos cadastrados para ele.";
     } else {
-        $sql = "DELETE FROM fornecedores WHERE id='$delete_id'";
+        $sql = "DELETE FROM fornecedor WHERE id='$delete_id'";
         if ($conn->query($sql) === TRUE) {
             $mensagem = "Fornecedor excluído com sucesso!";
         } else {
@@ -130,7 +130,7 @@ if (isset($_GET['delete_id'])) {
 }
 
 // Busca todos os fornecedores para listar na tabela
-$fornecedores = $conn->query("SELECT * FROM fornecedores");
+$fornecedores = $conn->query("SELECT * FROM fornecedor");
 
 // Se foi solicitada a edição de um fornecedor, busca os dados dele
 $fornecedor = null;
