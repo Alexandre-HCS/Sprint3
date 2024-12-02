@@ -5,7 +5,7 @@ include('conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $usuario = $_POST['usuario'];
-    $senha = md5($_POST['senha']);
+    $senha = ($_POST['senha']);
 
     $sql = "SELECT * FROM usuarios WHERE usuario='$usuario' AND senha='$senha'";
     $result = $conn->query($sql);

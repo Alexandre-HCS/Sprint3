@@ -3,7 +3,7 @@
 session_start();
 
 // Verifica se a variável de sessão 'usuario' não está definida.
-if (!isset($_SESSION['login'])) {
+if (!isset($_SESSION['usuario'])) {
     // Se o usuário não estiver logado, redireciona para a página de login.
     header('Location: login.php');
     
