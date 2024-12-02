@@ -136,7 +136,7 @@ if (isset($_GET['delete_id'])) {
 }
 
 // Busca todos os produtos para listar na tabela
-$produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f.nome AS fornecedor_nome FROM produtos p JOIN fornecedores f ON p.fornecedor_id = f.id");
+$produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f.nome AS fornecedor_nome FROM produtos p JOIN fornecedor f ON p.fornecedor_id = f.id");
 
 // Se foi solicitada a edição de um produto, busca os dados dele
 $produto = null;
@@ -151,7 +151,7 @@ if (isset($_GET['edit_id'])) {
 }
 
 // Busca todos os fornecedores para o select do formulário
-$fornecedores = $conn->query("SELECT id, nome FROM fornecedores");
+$fornecedores = $conn->query("SELECT id, nome FROM fornecedor");
 ?>
 
 <!DOCTYPE html>

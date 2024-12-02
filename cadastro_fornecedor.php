@@ -115,7 +115,7 @@ if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
 
     // Verifica se o fornecedor tem produtos cadastrados
-    $check_produtos = $conn->query("SELECT COUNT(*) as count FROM produtos WHERE fornecedor_id = '$delete_id'")->fetch_assoc();
+    $check_produtos = $conn->query("SELECT COUNT(*) as count FROM produto WHERE id = '$delete_id'")->fetch_assoc();
 
     if ($check_produtos['count'] > 0) {
         $mensagem = "Não é possível excluir este fornecedor pois existem produtos cadastrados para ele.";
