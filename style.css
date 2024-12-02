@@ -1,0 +1,140 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* FIM DO RESET */
+
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Syne:wght@400..800&display=swap');
+
+:root {
+    --primary-color: #E74E0F;
+    --secondary-color: #322172;
+    --primary-color-claro: #E77140;
+    --secondary-color-claro: #493790;
+    --primary-color-escuro: #C03902;
+    --secondary-color-escuro: #1E1150;
+    --text-color-escuro: #fff;
+    --text-color-claro: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --font-family: 'Syne', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+body{
+    font-family: var(--font-family);
+    text-decoration: none;
+    background-color: var(--secondary-color);
+}
+body a{
+  color: var(--text-color-escuro);
+}
+
+.success{
+  color: var(--success-color);
+}
+
+header{
+  background-color: var(--primary-color);
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px ;
+  font-style: bold;
+  color: var(--text-color-escuro);
+  font-size: 4vh;
+}
+header img{
+  width: 10vw;
+  margin-left: 2vw;
+}
+
+header a{
+  position: absolute;
+  margin-right: 3vw;
+  top: 1vh
+}
+
+.back-button{
+  font-size: 4vh;
+}
+
+main{
+  background-color: var(--secondary-color);
+  height: 100%;
+  display: flex;
+  color: var(--text-color-escuro);
+}
+
+.container{
+  background-color: var(--secondary-color-claro);
+  max-width: 30vw;
+  top: 50vh;
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}

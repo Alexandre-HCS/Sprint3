@@ -7,8 +7,8 @@
 
 /* Definindo variáveis para cores e fontes */
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #2c3e50;
+    --primary-color: #E74E0F;
+    --secondary-color: #322172;
     --background-color: #ecf0f1;
     --text-color: #333;
     --error-color: #e74c3c;
@@ -22,6 +22,10 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    background-color: var(--secondary-color);
+    background-size: cover;  /* A imagem será redimensionada para cobrir toda a área */
+    background-position: center;  /* A imagem será centralizada */
+    background-repeat: no-repeat;  /* A imagem não se repetirá */
 }
 
 .container {
@@ -35,6 +39,10 @@ h2 {
     color: var(--secondary-color);
     margin-bottom: 20px;
     text-align: center;
+    background-color: #ecf0f1;
+    width: 400px;
+    height: 5%;
+    border-radius: 8px;
 }
 
 /* Estilos para formulários */
@@ -56,6 +64,7 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="file"],
+input[type="number"],
 textarea,
 select {
     width: 100%;
@@ -255,7 +264,35 @@ table td a:last-child:hover {
 }
 
 
+header{
+    background-color: var(--primary-color);
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    font-style: bold;
+    color: var(--text-color);
+    font-size: 2vh;
 
 
+}
 
+header img{
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+header a{
+    position: relative;
+    top: 0.5vh;
+}
+
+.body_login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
