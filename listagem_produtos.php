@@ -29,7 +29,7 @@ $produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f
 <header>
         <img src="Imagens\logo.jpg" alt="">
         <h1>SITE PARA FORNECEDORES</h1>
-        <a href="index.php" class="back-button">Voltar</a>
+        <a href="main_page.php" class="back-button">Voltar</a>
     </header>
     <div class="container">
     <h2>Listagem de Produtos</h2>

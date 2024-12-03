@@ -166,7 +166,7 @@ $fornecedores = $conn->query("SELECT id, nome FROM fornecedor");
 <header>
         <img src="Imagens\logo.jpg" alt="">
         <h1>SITE PARA FORNECEDORES</h1>
-        <a href="index.php" class="back-button">Voltar</a>
+        <a href="main_page.php" class="back-button">Voltar</a>
     </header>
     <main>
         <div class="container">

@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result->num_rows > 0) {
         $_SESSION['usuario'] = $usuario;
-        header('Location: index.php');
+        header('Location: main_page.php');
     } else {
         $error = "Usuário ou senha inválidos.";
     }
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="senha">Senha :</label>
                             <input type="password" name="senha" required>
                             <button type="submit" style="margin-bottom: 30px;">Entrar</button>
-                            <?php if (isset($error)) echo "<p class='message error' >$error</p>"; ?>
+                            <?php if (isset($error)) echo "<p class='message error' >$error</p>"; ?><a href="index.php" class="button" >Cancelar</a>
         </form>
     </div>
 </body>
