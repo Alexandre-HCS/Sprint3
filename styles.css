@@ -46,6 +46,8 @@ h2 {
 }
 
 /* Estilos para formulários */
+
+
 form {
     background-color: #fff;
     padding: 20px;
@@ -156,23 +158,50 @@ a:hover {
 
 /* Estilos para o menu principal */
 .menu {
-    list-style-type: none;
+    margin-top: 12vh;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     margin-bottom: 20px;
 }
 
-.menu li {
-    margin: 0 10px;
-}
-
 .menu a {
-    display: block;
-    padding: 10px 20px;
+    display: flex;
+    padding: 2vh 3vw;
     background-color: var(--primary-color);
     color: #fff;
     border-radius: 4px;
     transition: background-color 0.3s;
+}
+
+.prod{
+    background-image: url(Imagens/produtos.png);
+    background-size: 75%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.forne{
+    background-image: url(Imagens/FORNECEDOR.png);
+    background-size: 70%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.list{
+    background-image: url(Imagens/armazem.png);
+    background-size: 75%;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.main{
+    display: flex;
+    background-color: #fff;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 3vh;
+    padding-top: 45vh;
+    border-radius: 8px;
 }
 
 .menu a:hover {
@@ -386,4 +415,24 @@ input[type="text"]{
 
 .tm{
     font-size: 1.5vh;
+}
+
+.falta{
+    color: rgb(255, 175, 83);
+    font-size: 3vh;
+}
+
+.pesquisar {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.pesquisar:hover {
+    background-color: #2980b9;
 }

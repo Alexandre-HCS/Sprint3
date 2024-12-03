@@ -14,7 +14,7 @@ if (isset($_GET['delete_id'])) {
         $mensagem = "Erro ao excluir produto: " . $conn->error;
     }
 }
-$produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f.nome AS fornecedor_nome FROM produto p JOIN fornecedor f ON p.fornecedor_id = f.id");
+$produtos = $conn->query("SELECT p.id, p.nome, p.estoque, p.descricao, p.preco, p.imagem, f.nome AS fornecedor_nome FROM produto p JOIN fornecedor f ON p.fornecedor_id = f.id");
 ?>
 
 <!DOCTYPE html>
@@ -29,11 +29,13 @@ $produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f
 <body>
 <header>
         <img src="Imagens\logo.jpg" alt="">
-        <h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut™</span></h1>
+        <h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut®</span></h1>
         <a href="main_page.php" class="back-button">Voltar</a>
     </header>
     <div class="container">
     <h2>Listagem de Produtos</h2>
+    <?php include('estoque.php'); ?>
+    <?php include('pesquisa.php'); ?>
         <!-- Tabela para listar os produtos cadastrados -->
         <div class="tabela">
             <table>
@@ -41,6 +43,7 @@ $produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f
                     <tr>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th>Quantidade</th>
                         <th>Descrição</th>
                         <th>Preço</th>
                         <th>Fornecedor</th>
@@ -53,6 +56,7 @@ $produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f
                     <tr>
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['nome']; ?></td>
+                        <td><?php echo $row['estoque']; ?></td>
                         <td><?php echo $row['descricao']; ?></td>
                         <td><?php echo 'R$ ' . number_format($row['preco'], 2, ',', '.'); ?></td>
                         <td><?php echo $row['fornecedor_nome']; ?></td>

@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'] ?? '';
     $fornecedor_id = $_POST['fornecedor_id'];
     $nome = $_POST['nome'];
+    $estoque = $_POST['estoque'];
     $descricao = $_POST['descricao'];
     $preco = str_replace(',', '.', $_POST['preco']); // Converte vírgula para ponto
 
@@ -92,8 +93,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Prepara a query SQL para inserção ou atualização
     if ($id) {
         // Se o ID existe, é uma atualização
-        $sql = "UPDATE produto SET fornecedor_id=?, nome=?, descricao=?, preco=?";
-        $params = [$fornecedor_id, $nome, $descricao, $preco];
+        $sql = "UPDATE produto SET fornecedor_id=?, nome=?, estoque=?, descricao=?, preco=?";
+        $params = [$fornecedor_id, $nome, $estoque, $descricao, $preco];
         if($imagem) {
             $sql .= ", imagem=?";
             $params[] = $imagem;
@@ -105,9 +106,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $mensagem = "Produto atualizado com sucesso!";
     } else {
         // Se não há ID, é uma nova inserção
-        $sql = "INSERT INTO produto (fornecedor_id, nome, descricao, preco, imagem) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO produto (fornecedor_id, nome, estoque, descricao, preco, imagem) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("issss", $fornecedor_id, $nome, $descricao, $preco, $imagem);
+        $stmt->bind_param("isisds", $fornecedor_id, $nome, $estoque, $descricao, $preco, $imagem);
         $mensagem = "Produto cadastrado com sucesso!";
     }
 
@@ -136,7 +137,7 @@ if (isset($_GET['delete_id'])) {
 }
 
 // Busca todos os produtos para listar na tabela
-$produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f.nome AS fornecedor_nome FROM produto p JOIN fornecedor f ON p.fornecedor_id = f.id");
+$produtos = $conn->query("SELECT p.id, p.nome, p.estoque, p.descricao, p.preco, p.imagem, f.nome AS fornecedor_nome FROM produto p JOIN fornecedor f ON p.fornecedor_id = f.id");
 
 // Se foi solicitada a edição de um produto, busca os dados dele
 $produto = null;
@@ -165,7 +166,7 @@ $fornecedores = $conn->query("SELECT id, nome FROM fornecedor");
 <body>
 <header>
         <img src="Imagens\logo.jpg" alt="">
-        <h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut™</span></h1>
+        <h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut®</span></h1>
         <a href="main_page.php" class="back-button">Voltar</a>
     </header>
     <main>
@@ -184,6 +185,9 @@ $fornecedores = $conn->query("SELECT id, nome FROM fornecedor");
         
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" value="<?php echo $produto['nome'] ?? ''; ?>" required>
+
+                <label for="estoque">Estoque:</label>
+                <input type="number" name="estoque" value="<?php echo $produto['estoque'] ?? ''; ?>" required>
         
                 <label for="descricao">Descrição:</label>
                 <textarea name="descricao"><?php echo $produto['descricao'] ?? ''; ?></textarea>
@@ -212,6 +216,7 @@ $fornecedores = $conn->query("SELECT id, nome FROM fornecedor");
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
+                            <th>Quantidade</th>
                             <th>Descrição</th>
                             <th>Preço</th>
                             <th>Fornecedor</th>
@@ -224,6 +229,7 @@ $fornecedores = $conn->query("SELECT id, nome FROM fornecedor");
                         <tr>
                             <td><?php echo $row['id']; ?></td>
                             <td><?php echo $row['nome']; ?></td>
+                            <td><?php echo $row['estoque']; ?></td>
                             <td><?php echo $row['descricao']; ?></td>
                             <td><?php echo 'R$ ' . number_format($row['preco'], 2, ',', '.'); ?></td>
                             <td><?php echo $row['fornecedor_nome']; ?></td>
