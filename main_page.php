@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="Imagens\logo.jpg" alt=""><h1>SITE PARA FORNECEDORES</h1><a href="logout.php" class="back-button">Sair</a>
+        <img src="Imagens\logo.jpg" alt=""><h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut™</span></h1><a href="logout.php" class="back-button">Sair</a>
         
         
     </header>

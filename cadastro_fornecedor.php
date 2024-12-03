@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensagem = "Fornecedor atualizado com sucesso!";
     } else {
         // Se não há ID, é uma nova inserção
-        $sql = "INSERT INTO fornecedor (nome, email, telefone, imagem) VALUES ('$nome', '$email', '$telefone', '$imagem')";
+        $sql = "INSERT INTO fornecedor (nome, cnpj, email, telefone, imagem) VALUES ('$nome', '$cnpj', '$email', '$telefone', '$imagem')";
         $mensagem = "Fornecedor cadastrado com sucesso!";
     }
 
@@ -116,7 +116,7 @@ if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
 
     // Verifica se o fornecedor tem produtos cadastrados
-    $check_produtos = $conn->query("SELECT COUNT(*) as count FROM produto WHERE id = '$delete_id'")->fetch_assoc();
+    $check_produtos = $conn->query("SELECT COUNT(*) as count FROM produto WHERE fornecedor_id = '$delete_id'")->fetch_assoc();
 
     if ($check_produtos['count'] > 0) {
         $mensagem = "Não é possível excluir este fornecedor pois existem produtos cadastrados para ele.";
@@ -153,7 +153,7 @@ if (isset($_GET['edit_id'])) {
 <body>
 <header>
         <img src="Imagens\logo.jpg" alt="">
-        <h1>SITE PARA FORNECEDORES</h1>
+        <h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut™</span></h1>
         <a href="main_page.php" class="back-button">Voltar</a>
     </header>
     <main>

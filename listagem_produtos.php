@@ -3,6 +3,7 @@
 <?php include('valida_sessao.php'); ?>
 <?php include('conexao.php'); ?>
 
+
 <?php
 if (isset($_GET['delete_id'])) {
     $delete_id = $_GET['delete_id'];
@@ -28,7 +29,7 @@ $produtos = $conn->query("SELECT p.id, p.nome, p.descricao, p.preco, p.imagem, f
 <body>
 <header>
         <img src="Imagens\logo.jpg" alt="">
-        <h1>SITE PARA FORNECEDORES</h1>
+        <h1>SITE DE GERENCIAMENTO <span class="tm">Dr.Peanut™</span></h1>
         <a href="main_page.php" class="back-button">Voltar</a>
     </header>
     <div class="container">
