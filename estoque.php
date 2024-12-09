@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT nome, estoque, fornecedor.id FROM produto";
+$sql = "SELECT nome, estoque FROM produto";
 $result = $conn->query($sql);
 ?>
 
